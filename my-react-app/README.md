@@ -4,12 +4,12 @@ O‘quv markazi uchun React asosidagi boshqaruv paneli.
 
 ## Ishga tushirish
 
-Repo ildizida `npm install` va `npm run dev` buyruqlarini bajaring. Vite interfeysi `http://localhost:5173`, lokal JSON API esa `http://localhost:3001` manzilida ishlaydi. Kirish sahifasida **Ro‘yxatdan o‘tish** orqali yangi hisob yarating.
+Repo ildizida `npm install` va `npm run dev` buyruqlarini bajaring. Vite interfeysi `http://localhost:5173`, lokal JSON API esa `http://localhost:3001` manzilida ishlaydi. Kirish sahifasida **Ro‘yxatdan o‘tish** orqali o‘zingizning login-parolingizni yarating.
 
-## Deploy
+## Namuna ma’lumotlari
 
-Ildizdagi `vercel.json` Vercel build sozlamalarini o‘z ichiga oladi. `npm run build` production frontend yaratadi.
+Boshlang‘ich demo bazada to‘rtta guruh, to‘qqizta namuna talaba, beshta to‘lov va uchta davomat yozuvi bor. Ismlar va telefonlar sinov uchun to‘qib chiqarilgan. Oldindan yaratilgan admin hisobi yo‘q.
 
-## Ma’lumotlar va hisoblar
+## Deploy va saqlash
 
-Ommaviy demo bazasi bo‘sh: unda oldindan yaratilgan login-parol yoki o‘quvchi ma’lumotlari yo‘q. Vercel demo rejimida foydalanuvchi hisobi va yozuvlar brauzerning `localStorage` xotirasida qoladi. Bu server tomonidagi autentifikatsiya va umumiy ma’lumotlar bazasining o‘rnini bosmaydi; haqiqiy production uchun alohida backend, xavfsiz parol xeshlash va ma’lumotlar bazasi kerak.
+Ildizdagi `vercel.json` Vercel build sozlamalarini o‘z ichiga oladi. `npm run build` production frontend yaratadi. Vercel demo rejimida ma’lumotlar brauzerning `localStorage` xotirasida saqlanadi. Bu umumiy, server tomonidagi autentifikatsiya va ma’lumotlar bazasining o‘rnini bosmaydi.

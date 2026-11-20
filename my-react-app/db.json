@@ -1,1 +1,32 @@
-{"admins":[],"groups":[],"students":[],"payments":[],"attendance":[]}
+{
+  "admins": [],
+  "groups": [
+    { "id": 1, "name": "Frontend 01", "course": "Frontend dasturlash", "teacher": "Namuna o‘qituvchi 1", "days": "toq", "time": "18:00-20:00", "monthlyPrice": 800000, "startDate": "2026-09-01", "status": "active" },
+    { "id": 2, "name": "English A2", "course": "Ingliz tili", "teacher": "Namuna o‘qituvchi 2", "days": "juft", "time": "16:00-17:30", "monthlyPrice": 500000, "startDate": "2026-09-15", "status": "active" },
+    { "id": 3, "name": "Python 01", "course": "Python dasturlash", "teacher": "Namuna o‘qituvchi 3", "days": "toq", "time": "10:00-12:00", "monthlyPrice": 900000, "startDate": "2026-10-01", "status": "active" },
+    { "id": 4, "name": "Dizayn 01", "course": "Grafik dizayn", "teacher": "Namuna o‘qituvchi 4", "days": "juft", "time": "14:00-16:00", "monthlyPrice": 650000, "startDate": "2026-10-15", "status": "active" }
+  ],
+  "students": [
+    { "id": 1, "firstName": "Namuna", "lastName": "Talaba 01", "phone": "000-000-0001", "birthDate": "2007-04-12", "groupId": 1, "status": "active", "joinedAt": "2026-09-01", "note": "Namuna yozuv" },
+    { "id": 2, "firstName": "Namuna", "lastName": "Talaba 02", "phone": "000-000-0002", "birthDate": "2006-08-20", "groupId": 1, "status": "active", "joinedAt": "2026-09-04", "note": "Namuna yozuv" },
+    { "id": 3, "firstName": "Namuna", "lastName": "Talaba 03", "phone": "000-000-0003", "birthDate": "2008-01-09", "groupId": 1, "status": "active", "joinedAt": "2026-09-10", "note": "Namuna yozuv" },
+    { "id": 4, "firstName": "Namuna", "lastName": "Talaba 04", "phone": "000-000-0004", "birthDate": "2005-06-18", "groupId": 2, "status": "active", "joinedAt": "2026-09-15", "note": "Namuna yozuv" },
+    { "id": 5, "firstName": "Namuna", "lastName": "Talaba 05", "phone": "000-000-0005", "birthDate": "2007-02-27", "groupId": 2, "status": "active", "joinedAt": "2026-09-18", "note": "Namuna yozuv" },
+    { "id": 6, "firstName": "Namuna", "lastName": "Talaba 06", "phone": "000-000-0006", "birthDate": "2006-11-03", "groupId": 3, "status": "active", "joinedAt": "2026-10-01", "note": "Namuna yozuv" },
+    { "id": 7, "firstName": "Namuna", "lastName": "Talaba 07", "phone": "000-000-0007", "birthDate": "2008-05-22", "groupId": 3, "status": "frozen", "joinedAt": "2026-10-02", "note": "Vaqtincha tanaffus" },
+    { "id": 8, "firstName": "Namuna", "lastName": "Talaba 08", "phone": "000-000-0008", "birthDate": "2005-12-14", "groupId": 4, "status": "active", "joinedAt": "2026-10-15", "note": "Namuna yozuv" },
+    { "id": 9, "firstName": "Namuna", "lastName": "Talaba 09", "phone": "000-000-0009", "birthDate": "2007-03-30", "groupId": 4, "status": "active", "joinedAt": "2026-10-17", "note": "Namuna yozuv" }
+  ],
+  "payments": [
+    { "id": 1, "studentId": 1, "amount": 800000, "month": "2026-11", "method": "click", "paidAt": "2026-11-05" },
+    { "id": 2, "studentId": 4, "amount": 500000, "month": "2026-11", "method": "karta", "paidAt": "2026-11-08" },
+    { "id": 3, "studentId": 8, "amount": 650000, "month": "2026-11", "method": "naqd", "paidAt": "2026-11-11" },
+    { "id": 4, "studentId": 6, "amount": 400000, "month": "2026-11", "method": "karta", "paidAt": "2026-11-15" },
+    { "id": 5, "studentId": 2, "amount": 800000, "month": "2026-10", "method": "naqd", "paidAt": "2026-10-05" }
+  ],
+  "attendance": [
+    { "id": 1, "groupId": 1, "date": "2026-11-19", "records": [ { "studentId": 1, "status": "present" }, { "studentId": 2, "status": "late" }, { "studentId": 3, "status": "present" } ] },
+    { "id": 2, "groupId": 2, "date": "2026-11-20", "records": [ { "studentId": 4, "status": "present" }, { "studentId": 5, "status": "absent" } ] },
+    { "id": 3, "groupId": 3, "date": "2026-11-21", "records": [ { "studentId": 6, "status": "present" }, { "studentId": 7, "status": "absent" } ] }
+  ]
+}

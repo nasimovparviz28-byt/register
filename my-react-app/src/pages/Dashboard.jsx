@@ -77,13 +77,13 @@ export default function Dashboard() {
   const cards = [
     { label: 'Faol talabalar', value: `${stats.activeStudents} ta`, icon: Users, tone: 'violet', detail: 'Barcha guruhlar bo‘yicha' },
     { label: 'Faol guruhlar', value: `${stats.activeGroups} ta`, icon: BookOpen, tone: 'sky', detail: 'O‘qish davom etmoqda' },
-    { label: 'Joriy oy tushumi', value: formatMoney(stats.monthlyRevenue), icon: DollarSign, tone: 'violet', detail: currentMonthString() },
+    { label: 'Joriy oy tushumi', value: formatMoney(stats.monthlyRevenue), icon: DollarSign, tone: 'emerald', detail: currentMonthString() },
     { label: 'Qarzdorlar', value: `${stats.debtorsCount} ta`, icon: AlertCircle, tone: 'rose', detail: `Jami ${formatMoney(stats.totalDebt)}` }
   ];
   const toneClasses = {
     violet: 'border-t-violet-400 bg-violet-100 text-violet-800',
     sky: 'border-t-sky-400 bg-sky-100 text-sky-700',
-    violet: 'border-t-violet-400 bg-violet-100 text-violet-700',
+    emerald: 'border-t-emerald-400 bg-emerald-100 text-emerald-700',
     rose: 'border-t-rose-400 bg-rose-100 text-rose-700'
   };
 
@@ -164,7 +164,8 @@ export default function Dashboard() {
             <h3 className="mt-1 text-xl font-bold">O‘quv jarayonini boshqaring</h3>
           </div>
           <div className="flex flex-wrap gap-2">
-          <Link to="/dashboard/students" className="rounded-xl bg-violet-700 px-4 py-2.5 text-sm font-bold text-white hover:bg-violet-800">Talaba qo‘shish</Link>
+            <Link to="/dashboard/groups" className="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-semibold hover:bg-white/10">Guruh qo‘shish</Link>
+            <Link to="/dashboard/students" className="rounded-xl bg-violet-700 px-4 py-2.5 text-sm font-bold text-white hover:bg-violet-800">Talaba qo‘shish</Link>
             <Link to="/dashboard/attendance" className="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-semibold hover:bg-white/10">Davomat belgilash</Link>
             <Link to="/dashboard/payments" className="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-semibold hover:bg-white/10">To‘lov qabul qilish</Link>
           </div>

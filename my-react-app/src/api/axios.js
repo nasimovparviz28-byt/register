@@ -6,17 +6,39 @@ const apiUrl = import.meta.env.VITE_API_URL?.trim();
 // an external API server or Vercel environment variables.
 const useBrowserDemo = import.meta.env.PROD;
 const demoStorageKey = 'edu-panel-demo-database';
+const demoSeedVersionKey = 'edu-panel-demo-seed-version';
+const demoSeedVersion = '2';
 
 function readDemoDatabase() {
   try {
     const stored = localStorage.getItem(demoStorageKey);
-    if (stored) return JSON.parse(stored);
+    if (stored) {
+      const database = JSON.parse(stored);
+      const hasOldEmptyRoster = database.groups?.length === 0 && database.students?.length === 0;
+      const hasStarterGroups = Array.isArray(demoDatabase.groups) && demoDatabase.groups.length > 0;
+
+      if (hasOldEmptyRoster && hasStarterGroups && localStorage.getItem(demoSeedVersionKey) !== demoSeedVersion) {
+        const upgradedDatabase = {
+          ...structuredClone(demoDatabase),
+          admins: Array.isArray(database.admins) ? database.admins : []
+        };
+        saveDemoDatabase(upgradedDatabase);
+        localStorage.setItem(demoSeedVersionKey, demoSeedVersion);
+        return upgradedDatabase;
+      }
+
+      if (!localStorage.getItem(demoSeedVersionKey)) {
+        localStorage.setItem(demoSeedVersionKey, demoSeedVersion);
+      }
+      return database;
+    }
   } catch {
     localStorage.removeItem(demoStorageKey);
   }
 
   const initialData = structuredClone(demoDatabase);
   localStorage.setItem(demoStorageKey, JSON.stringify(initialData));
+  localStorage.setItem(demoSeedVersionKey, demoSeedVersion);
   return initialData;
 }
 

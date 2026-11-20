@@ -124,7 +124,7 @@ export default function Groups() {
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold">Guruhlar</h2>
         <button onClick={openCreate} className="btn-primary inline-flex items-center gap-2">
-          <Plus className="w-4 h-4" /> Qo'shish
+          <Plus className="w-4 h-4" /> Guruh qo‘shish
         </button>
       </div>
 
@@ -144,7 +144,7 @@ export default function Groups() {
       )}
 
       <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
-        {groups.length === 0 && <p className="text-slate-500">Guruhlar yo'q.</p>}
+        {groups.length === 0 && <p className="text-slate-500">Hozircha guruhlar yo‘q. Yangi guruh qo‘shish uchun yuqoridagi tugmani bosing.</p>}
         {groups.map((g) => (
           <div key={g.id} className="card p-5 space-y-3">
             <div className="flex items-start justify-between gap-2">
@@ -157,7 +157,7 @@ export default function Groups() {
               <StatusBadge status={g.status} />
             </div>
             <div className="text-sm space-y-1 text-slate-600 dark:text-slate-300">
-              <p>O'qituvchi: {g.teacher}</p>
+              <p>O‘qituvchi: {g.teacher}</p>
               <p>
                 {g.days === 'toq' ? 'Toq kunlar' : 'Juft kunlar'} · {g.time}
               </p>
@@ -198,7 +198,7 @@ export default function Groups() {
               {errors.course && <p className="text-red-500 text-xs">{errors.course.message}</p>}
             </div>
             <div>
-              <label className="text-sm">O'qituvchi</label>
+              <label className="text-sm">O‘qituvchi</label>
               <input className="input mt-1" {...register('teacher')} />
               {errors.teacher && <p className="text-red-500 text-xs">{errors.teacher.message}</p>}
             </div>
@@ -238,7 +238,7 @@ export default function Groups() {
           </div>
           <div className="flex justify-end gap-2 pt-2">
             <button type="button" className="btn-ghost" onClick={() => setOpen(false)}>
-              Bekor
+              Bekor qilish
             </button>
             <button type="submit" disabled={isSubmitting} className="btn-primary">
               Saqlash
