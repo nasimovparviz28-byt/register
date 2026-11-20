@@ -158,7 +158,7 @@ export default function DashboardLayout() {
               className="p-2.5 rounded-xl border border-slate-200/80 bg-slate-50 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors"
               aria-label="Mavzuni almashtirish"
             >
-                {darkMode ? <Sun className="w-5 h-5 text-lime-500" /> : <Moon className="w-5 h-5 text-slate-600" />}
+                {darkMode ? <Sun className="w-5 h-5 text-violet-500" /> : <Moon className="w-5 h-5 text-slate-600" />}
             </button>
 
             <div className="flex items-center gap-2.5 border-l pl-3 sm:pl-4 border-slate-200 dark:border-slate-700">

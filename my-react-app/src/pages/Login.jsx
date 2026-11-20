@@ -28,7 +28,7 @@ export default function Login() {
       if (mode === 'register') {
         const existing = await api.get('/admins', { params: { username: data.username.trim() } });
         if (existing.data.length > 0) {
-          setError('Bu foydalanuvchi nomi band. Boshqasini tanlang.');
+          setError('Bu login band. Boshqa login tanlang.');
           return;
         }
         const res = await api.post('/admins', { username: data.username.trim(), password: data.password, fullName: data.fullName.trim(), avatar: '' });
@@ -46,10 +46,10 @@ export default function Login() {
         localStorage.setItem('admin', JSON.stringify(adminWithoutPassword));
         navigate('/dashboard');
       } else {
-        setError("Foydalanuvchi nomi yoki parol noto'g'ri!");
+        setError('Login yoki parol notoвЂgвЂri.');
       }
     } catch (err) {
-      setError(getErrorMessage(err, "API serverga ulanib bo'lmadi. Server ishlayotganini, VITE_API_URL va CORS sozlamalarini tekshiring."));
+      setError(getErrorMessage(err, 'Serverga ulanib boвЂlmadi. Server ishlayotganini va API manzili toвЂgвЂri sozlanganini tekshiring.'));
     }
   };
 
@@ -67,20 +67,20 @@ export default function Login() {
           </div>
 
           <div className="relative max-w-lg py-12">
-            <p className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-white/75"><Sparkles className="h-4 w-4" /> Admin panel</p>
+            <p className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-white/75"><Sparkles className="h-4 w-4" /> OвЂquv markazi paneli</p>
             <h1 className="text-4xl font-black leading-tight tracking-tight xl:text-5xl">
-              Ta'lim jarayonini bir joydan boshqaring
+              TaвЂ™lim jarayonini bir joydan boshqaring
             </h1>
             <p className="mt-5 max-w-md text-base leading-7 text-slate-800/75">
-              Talabalar, guruhlar, to'lovlar va davomatni qulay boshqarish uchun tizimga kiring.
+              Talabalar, guruhlar, toвЂlovlar va davomatni qulay boshqarish uchun hisobingizga kiring.
             </p>
             <div className="mt-9 flex items-center gap-3 rounded-2xl border border-black/10 bg-white/45 p-4">
               <ShieldCheck className="h-5 w-5 shrink-0" aria-hidden="true" />
-              <p className="text-sm font-medium leading-6">Faqat administrator hisoblari uchun mo'ljallangan.</p>
+              <p className="text-sm font-medium leading-6">OвЂquv markazingiz boshqaruvi вЂ” barchasi bir joyda.</p>
             </div>
           </div>
 
-          <p className="relative text-xs font-medium text-slate-800/60">Najot Ta'lim Р’В· Boshqaruv tizimi</p>
+          <p className="relative text-xs font-medium text-white/70">Najot TaвЂ™lim В· Boshqaruv tizimi</p>
         </section>
 
         <section className="flex items-center justify-center px-5 py-10 sm:px-10 lg:px-12">
@@ -89,19 +89,19 @@ export default function Login() {
               <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">
                 <GraduationCap className="h-6 w-6" aria-hidden="true" />
               </span>
-              <p className="text-sm font-bold text-slate-500 dark:text-slate-400">Najot Ta'lim Р’В· Admin panel</p>
+              <p className="text-sm font-bold text-slate-500 dark:text-slate-400">Najot TaвЂ™lim В· Boshqaruv paneli</p>
             </div>
 
             <div className="mb-8">
               <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">{mode === 'login' ? 'Xush kelibsiz' : 'Hisob yarating'}</h2>
               <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
-                {mode === 'login' ? "Davom etish uchun login va parolingizni kiriting." : "Paneldan foydalanish uchun ma'lumotlaringizni kiriting."}
+                {mode === 'login' ? 'Davom etish uchun loginingiz va parolingizni kiriting.' : 'Hisob yaratish uchun maвЂ™lumotlaringizni kiriting.'}
               </p>
             </div>
 
-            <div className="mb-6 grid grid-cols-2 rounded-xl bg-violet-50 p-1 dark:bg-slate-800" role="tablist" aria-label="Kirish yoki registratsiya">
-              <button type="button" role="tab" aria-selected={mode === 'login'} onClick={() => { setMode('login'); setError(''); }} className={`rounded-lg px-3 py-2.5 text-sm font-semibold transition ${mode === 'login' ? 'bg-white text-violet-700 shadow-sm dark:bg-slate-700 dark:text-violet-300' : 'text-slate-500 hover:text-violet-700'}`}>Kirish</button>
-              <button type="button" role="tab" aria-selected={mode === 'register'} onClick={() => { setMode('register'); setError(''); }} className={`rounded-lg px-3 py-2.5 text-sm font-semibold transition ${mode === 'register' ? 'bg-white text-violet-700 shadow-sm dark:bg-slate-700 dark:text-violet-300' : 'text-slate-500 hover:text-violet-700'}`}>RoРІР‚Вyxatdan oРІР‚Вtish</button>
+            <div className="mb-6 grid grid-cols-2 rounded-xl bg-violet-50 p-1 dark:bg-slate-800" role="group" aria-label="Kirish usulini tanlang">
+              <button type="button" aria-pressed={mode === 'login'} onClick={() => { setMode('login'); setError(''); }} className={`rounded-lg px-3 py-2.5 text-sm font-semibold transition ${mode === 'login' ? 'bg-white text-violet-700 shadow-sm dark:bg-slate-700 dark:text-violet-300' : 'text-slate-500 hover:text-violet-700'}`}>Kirish</button>
+              <button type="button" aria-pressed={mode === 'register'} onClick={() => { setMode('register'); setError(''); }} className={`rounded-lg px-3 py-2.5 text-sm font-semibold transition ${mode === 'register' ? 'bg-white text-violet-700 shadow-sm dark:bg-slate-700 dark:text-violet-300' : 'text-slate-500 hover:text-violet-700'}`}>RoвЂyxatdan oвЂtish</button>
             </div>
 
             {error && (
@@ -113,12 +113,12 @@ export default function Login() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               {mode === 'register' && <div>
                 <label htmlFor="fullName" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">Ism va familiya</label>
-                <input id="fullName" type="text" autoComplete="name" aria-invalid={Boolean(errors.fullName)} aria-describedby={errors.fullName ? 'fullName-error' : undefined} {...register('fullName')} className="input" placeholder="Ism familiyangiz" />
+                <input id="fullName" type="text" autoComplete="name" aria-invalid={Boolean(errors.fullName)} aria-describedby={errors.fullName ? 'fullName-error' : undefined} {...register('fullName')} className="input" placeholder="Ism va familiyangiz" />
                 {errors.fullName && <p id="fullName-error" className="mt-1.5 text-xs text-red-600">{errors.fullName.message}</p>}
               </div>}
               <div>
                 <label htmlFor="username" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
-                  Foydalanuvchi nomi
+                  Login
                 </label>
                 <input
                   id="username"
@@ -128,7 +128,7 @@ export default function Login() {
                   aria-describedby={errors.username ? 'username-error' : undefined}
                   {...register('username')}
                   className="input"
-                  placeholder="Foydalanuvchi nomingiz"
+                  placeholder="Loginingizni kiriting"
                 />
                 {errors.username && <p id="username-error" className="mt-1.5 text-xs text-red-600">{errors.username.message}</p>}
               </div>
@@ -160,8 +160,8 @@ export default function Login() {
                   <button
                     type="button"
                     onClick={() => setShowPassword((visible) => !visible)}
-                    className="absolute inset-y-0 right-0 flex items-center rounded-r-xl px-3 text-slate-500 transition-colors hover:text-slate-900 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-lime-500/30 dark:hover:text-slate-100"
-                    aria-label={showPassword ? 'Parolni yashirish' : 'Parolni koРІР‚Вrsatish'}
+                    className="absolute inset-y-0 right-0 flex items-center rounded-r-xl px-3 text-slate-500 transition-colors hover:text-slate-900 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-violet-500/30 dark:hover:text-slate-100"
+                    aria-label={showPassword ? 'Parolni yashirish' : 'Parolni koвЂrsatish'}
                     aria-pressed={showPassword}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -183,12 +183,12 @@ export default function Login() {
                 disabled={isSubmitting}
                 className="btn-primary flex w-full items-center justify-center gap-2 py-3"
               >
-                {isSubmitting ? 'Tekshirilmoqda...' : <>{mode === 'login' ? 'Kirish' : "RoРІР‚Вyxatdan oРІР‚Вtish"} <ArrowRight className="h-4 w-4" aria-hidden="true" /></>}
+                {isSubmitting ? 'Tekshirilmoqda...' : <>{mode === 'login' ? 'Kirish' : "RoвЂyxatdan oвЂtish"} <ArrowRight className="h-4 w-4" aria-hidden="true" /></>}
               </button>
             </form>
 
             <p className="mt-6 text-center text-xs leading-5 text-slate-400">
-              Kirishda muammo bormi? Tizim administratoriga murojaat qiling.
+              {mode === 'login' ? 'Kirishda muammo boвЂlsa, tizim administratoriga murojaat qiling.' : 'RoвЂyxatdan oвЂtib, hisobingizga alohida login va parol yarating.'}
             </p>
           </div>
         </section>
@@ -196,4 +196,3 @@ export default function Login() {
     </main>
   );
 }
-
